@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ApiQueryLanguage.GraphV1
+﻿namespace ApiQueryLanguage.GraphV1
 {
     public class Graph<T>
     {
@@ -39,14 +33,13 @@ namespace ApiQueryLanguage.GraphV1
 
         public List<Edge> Edges { get; }
 
-        public void Add(string id, string label = null, T data = default)
-        {
-            Add(new Node<T>(id, label, data));
-        }
+        public void Add(string id) => Add(new Node<T>(id));
+
+        public void Add(string id, string? label, T? data) => Add(new Node<T>(id, label, data));
 
         public void Add(Node<T> node)
         {
-            var exists = Nodes.FirstOrDefault(n => n.Id == node.Id);
+            var exists = Nodes.Find(n => n.Id == node.Id);
 
             if (exists != null)
             {

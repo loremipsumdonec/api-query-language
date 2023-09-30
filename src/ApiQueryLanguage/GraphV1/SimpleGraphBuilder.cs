@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ApiQueryLanguage.GraphV1
+﻿namespace ApiQueryLanguage.GraphV1
 {
     public class SimpleGraphBuilder<T>
     {
@@ -17,7 +11,7 @@ namespace ApiQueryLanguage.GraphV1
             bool edgeIsDirected = false;
             bool edgeIsReverted = false;
 
-            foreach (var segment in GetSegments(section))
+            foreach (string segment in GetSegments(section))
             {
                 var edge = IsEdge(segment);
 
