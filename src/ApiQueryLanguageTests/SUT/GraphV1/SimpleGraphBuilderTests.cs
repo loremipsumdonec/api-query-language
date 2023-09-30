@@ -63,7 +63,7 @@ namespace ApiQueryLanguageTests.SUT.GraphV1
         }
 
         [Fact]
-        public void Load_WithAndEdge_EdgeBetweenTwoNodes()
+        public void Load_WithAnEdge_EdgeBetweenTwoNodes()
         {
             var graph = new SimpleGraphBuilder<object>()
                 .Load("a -- b")
