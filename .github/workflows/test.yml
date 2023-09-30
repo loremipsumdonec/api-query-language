@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore ./src/ApiQueryLanguageTests.sln
+      run: dotnet restore ./src/ApiQueryLanguage.sln
     - name: Code quality check
-      run: dotnet format -v d ./src/ApiQueryLanguageTests.sln --verify-no-changes
+      run: dotnet format -v d ./src/ApiQueryLanguage.sln --verify-no-changes
     - name: Test
-      run: dotnet test ./src/ApiQueryLanguageTests/ApiQueryLanguageTests.csproj
+      run: dotnet test ./src/ApiQueryLanguage.sln
