@@ -1,5 +1,6 @@
 ﻿namespace ApiQueryLanguage.LanguageV1.Comparisons
-{    public sealed class LessThan
+{
+    public sealed class LessThan
         : ComparisonWithValues
     {
         public LessThan()

@@ -35,7 +35,7 @@
     public static class RequestExtensions
     {
         public static IQueryable<T> ApplyOn<T>(this IRequest request, IQueryable<T> queryable)
-            where T: class
+            where T : class
         {
             return queryable;
         }

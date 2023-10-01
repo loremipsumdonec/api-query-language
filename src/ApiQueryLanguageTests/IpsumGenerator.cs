@@ -6,7 +6,7 @@ namespace ApiQueryLanguageTests
     {
         public static string GenerateMobilePhoneNumber()
         {
-            return string.Format("{0}{1}{2}-{3} {4} {5}",  System.Random.Shared.Next(0, 9), System.Random.Shared.Next(0, 9), System.Random.Shared.Next(0, 9),
+            return string.Format("{0}{1}{2}-{3} {4} {5}", System.Random.Shared.Next(0, 9), System.Random.Shared.Next(0, 9), System.Random.Shared.Next(0, 9),
                 System.Random.Shared.Next(10, 99), System.Random.Shared.Next(10, 99), System.Random.Shared.Next(100, 999));
         }
 
