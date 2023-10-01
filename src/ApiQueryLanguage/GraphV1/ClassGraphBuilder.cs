@@ -134,7 +134,7 @@ namespace ApiQueryLanguage.GraphV1
                 return property;
             }
 
-            if(through is null)
+            if (through is null)
             {
                 throw new ArgumentNullException(nameof(through));
             }
