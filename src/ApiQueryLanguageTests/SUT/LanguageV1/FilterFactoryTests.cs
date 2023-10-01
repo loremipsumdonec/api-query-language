@@ -80,8 +80,7 @@ namespace ApiQueryLanguageTests.SUT.LanguageV1
         [Fact]
         public void Create_WithOnlyComparisons_FilterIsConjunction()
         {
-            var factory = new FilterFactory();
-            var filter = factory.Create("eq(Person.name, \"Lorem\"),gte(Person.age, 34)");
+            var filter = FilterFactory.Create("eq(Person.name, \"Lorem\"),gte(Person.age, 34)");
 
             Assert.IsType<Conjunction>(filter);
         }
@@ -89,8 +88,7 @@ namespace ApiQueryLanguageTests.SUT.LanguageV1
         [Fact]
         public void Create_WithAnd_FilterIsConjunction()
         {
-            var factory = new FilterFactory();
-            var filter = factory.Create("and(eq(Person.name, \"Lorem\"),gte(Person.age, 34))");
+            var filter = FilterFactory.Create("and(eq(Person.name, \"Lorem\"),gte(Person.age, 34))");
 
             Assert.IsType<Conjunction>(filter);
         }
@@ -98,8 +96,7 @@ namespace ApiQueryLanguageTests.SUT.LanguageV1
         [Fact]
         public void Create_WithOr_FilterIsDisjunction()
         {
-            var factory = new FilterFactory();
-            var filter = factory.Create("or(eq(Person.name, \"Lorem\"),gte(Person.age, 34))");
+            var filter = FilterFactory.Create("or(eq(Person.name, \"Lorem\"),gte(Person.age, 34))");
 
             Assert.IsType<Disjunction>(filter);
         }

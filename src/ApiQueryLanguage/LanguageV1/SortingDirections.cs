@@ -1,4 +1,4 @@
-﻿namespace ApiQueryLanguage.LanguageV1.Sorting
+﻿namespace ApiQueryLanguage.LanguageV1
 {
     public enum SortingDirections
     {

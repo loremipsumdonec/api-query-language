@@ -1,15 +1,13 @@
 ﻿using ApiQueryLanguage.LanguageV1;
-using ApiQueryLanguage.LanguageV1.Sorting;
 
 namespace ApiQueryLanguageTests.SUT.LanguageV1
 {
-    public class SortingFactoryTests
+    public class OrderByFactoryTests
     {
-
         [Fact]
         public void CreateOrderBy_WithValidInput_HasExpected()
         {
-            var orderBy = SortingFactory.CreateOrderBy("Person.name_DESC, Person.age_ASC");
+            var orderBy = OrderByFactory.CreateOrderBy("Person.name_DESC, Person.age_ASC");
 
             Assert.Equal(2, orderBy.Count());
         }
@@ -17,7 +15,7 @@ namespace ApiQueryLanguageTests.SUT.LanguageV1
         [Fact]
         public void CreatePropertyOrderBy_WithValidInput_HasExpected()
         {
-            var orderBy = SortingFactory.CreatePropertyOrderBy("Person.name_DESC");
+            var orderBy = OrderByFactory.CreatePropertyOrderBy("Person.name_DESC");
 
             Assert.Equal("Person.name", orderBy.PropertyId);
             Assert.Equal(SortingDirections.Descending, orderBy.Direction);
@@ -29,7 +27,7 @@ namespace ApiQueryLanguageTests.SUT.LanguageV1
         [InlineData("Person.name_ASC,", "Person.name_ASC")]
         public void GetSegments_ExpectedSegments(string queryString, string expectedSegments)
         {
-            var segments = SortingFactory.GetSegments(queryString);
+            var segments = OrderByFactory.GetSegments(queryString);
 
             Assert.Equal(expectedSegments, string.Join(";", segments));
         }
@@ -39,7 +37,7 @@ namespace ApiQueryLanguageTests.SUT.LanguageV1
         [InlineData("Person.name", "Person.name")]
         public void GetPropertyId_ExpectedPropertyId(string segment, string expectedPropertyId)
         {
-            string path = SortingFactory.GetPropertyId(segment);
+            string path = OrderByFactory.GetPropertyId(segment);
 
             Assert.Equal(expectedPropertyId, path);
         }
@@ -52,7 +50,7 @@ namespace ApiQueryLanguageTests.SUT.LanguageV1
         [InlineData("Person.Name_desc", SortingDirections.Descending)]
         public void GetOrderBy_ExpectedOrderByDirection(string segment, SortingDirections expectedDirection)
         {
-            var direction = SortingFactory.GetDirection(segment);
+            var direction = OrderByFactory.GetDirection(segment);
 
             Assert.Equal(expectedDirection, direction);
         }

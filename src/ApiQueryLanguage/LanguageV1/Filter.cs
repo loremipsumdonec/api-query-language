@@ -1,7 +1,7 @@
 ﻿namespace ApiQueryLanguage.LanguageV1
 {
     public abstract class Filter
-        : ISet
+        : ISet, IFilter
     {
         public IEnumerable<ISet> Sets { get; } = new List<ISet>();
 

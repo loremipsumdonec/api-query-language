@@ -1,8 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ApiQueryLanguage.LanguageV1.Comparisons
+﻿namespace ApiQueryLanguage.LanguageV1.Comparisons
 {
-    [Display(ShortName = "startsWith")]
     public sealed class StartsWith
         : ComparisonWithValues
     {

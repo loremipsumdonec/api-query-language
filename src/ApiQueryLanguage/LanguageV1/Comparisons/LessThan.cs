@@ -1,9 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ApiQueryLanguage.LanguageV1.Comparisons
-{
-    [Display(ShortName = "lt")]
-    public sealed class LessThan
+﻿namespace ApiQueryLanguage.LanguageV1.Comparisons
+{    public sealed class LessThan
         : ComparisonWithValues
     {
         public LessThan()

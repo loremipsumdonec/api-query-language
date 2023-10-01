@@ -2,12 +2,11 @@
 
 namespace ApiQueryLanguage.LanguageV1
 {
-    internal sealed class FilterFactory
-        : IFilterFactory
+    public static class FilterFactory
     {
         private const char CollectionSeperator = ',';
 
-        public Filter Create(string segment)
+        public static IFilter Create(string segment)
         {
             Filter root = new Conjunction();
             Load(segment, root);
@@ -20,7 +19,7 @@ namespace ApiQueryLanguage.LanguageV1
             return root;
         }
 
-        public void Load(string segment, Filter filter)
+        private static void Load(string segment, Filter filter)
         {
             foreach (string s in GetSegments(segment))
             {

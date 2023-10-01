@@ -1,13 +1,11 @@
-﻿using ApiQueryLanguage.LanguageV1.Sorting;
-
-namespace ApiQueryLanguage.LanguageV1
+﻿namespace ApiQueryLanguage.LanguageV1
 {
-    internal static class SortingFactory
+    public static class OrderByFactory
     {
         private const char CollectionSeperator = ',';
         private const char Seperator = '_';
 
-        public static IEnumerable<OrderByProperty> CreateOrderBy(string segment)
+        public static IEnumerable<IOrderByProperty> CreateOrderBy(string? segment)
         {
             if (string.IsNullOrEmpty(segment))
             {
@@ -20,7 +18,7 @@ namespace ApiQueryLanguage.LanguageV1
             }
         }
 
-        public static OrderByProperty CreatePropertyOrderBy(string segment)
+        public static IOrderByProperty CreatePropertyOrderBy(string segment)
         {
             return new OrderByProperty()
             {

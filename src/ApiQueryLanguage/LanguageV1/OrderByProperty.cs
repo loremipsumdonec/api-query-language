@@ -1,6 +1,7 @@
-﻿namespace ApiQueryLanguage.LanguageV1.Sorting
+﻿namespace ApiQueryLanguage.LanguageV1
 {
-    public sealed class OrderByProperty
+    internal sealed class OrderByProperty
+        : IOrderByProperty
     {
         public OrderByProperty()
         {
@@ -12,7 +13,7 @@
             Direction = direction;
         }
 
-        public string? PropertyId { get; set; }
+        public string PropertyId { get; set; } = string.Empty;
 
         public SortingDirections Direction { get; set; }
     }

@@ -2,11 +2,11 @@
 
 namespace ApiQueryLanguage.LanguageV1
 {
-    internal static class PropertyFactory
+    public static class PropertyFactory
     {
         private const char CollectionSeperator = ',';
 
-        public static IEnumerable<IProperty> CreateProperties(string segment)
+        public static IEnumerable<IProperty> CreateProperties(string? segment)
         {
             if (string.IsNullOrEmpty(segment))
             {
@@ -50,7 +50,17 @@ namespace ApiQueryLanguage.LanguageV1
 
         public static Type GetFunctionType(string segment)
         {
-            throw new NotImplementedException();
+            string functionName = GetFunction(segment);
+
+            return functionName.ToLower() switch
+            {
+                "sum" => typeof(SumAggregateFunction),
+                "max" => typeof(MaxAggregateFunction),
+                "min" => typeof(MinAggregateFunction),
+                "avg" => typeof(AvgAggregateFunction),
+                "count" => typeof(CountAggregateFunction),
+                _ => throw new ArgumentException("Not supported function"),
+            };
         }
 
         public static IProperty CreateProperty(string segment)
