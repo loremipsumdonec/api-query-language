@@ -22,7 +22,7 @@ namespace ApiQueryLanguage.GraphV1
             return graph;
         }
 
-        private static void BuildFrom(object root, Graph<object> graph, string targetNodeId = null)
+        private static void BuildFrom(object root, Graph<object> graph, string? targetNodeId = null)
         {
             string nodeId = CreateNodeId(root);
 
